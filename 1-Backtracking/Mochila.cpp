@@ -1,8 +1,6 @@
-
 /* 
  * File:   main.cpp
- * Author: BlueCod (Sammy Guergachi <sguergachi at gmail.com>)
- *
+ * Author: BlueCod 
  * Created on 2 de setiembre de 2024, 2:20 p. m.
  */
 
