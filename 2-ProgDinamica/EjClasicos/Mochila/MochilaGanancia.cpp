@@ -63,7 +63,7 @@ void mochilaMinima(vector<int> &pesos,vector<int> &ganancias, int capacidad, int
                 dp[i][j] = dp[i-1][j];
             }
             else{
-                //analizamos sobrante y el anterior
+                //analizamos sobrante y el anterior -> guardamos el minimo 
                 dp[i][j]=min(dp[i-1][j-pesos[i-1]],
                         dp[i-1][j]);
             }

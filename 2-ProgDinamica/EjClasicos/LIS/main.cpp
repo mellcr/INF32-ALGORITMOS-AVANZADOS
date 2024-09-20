@@ -12,6 +12,7 @@
 
 using namespace std;
 int funlis(vector<int>&num, int n);
+int funlisOptimizado(vector<int>& num, int n) ; 
 /*
  * 
  */
@@ -21,6 +22,7 @@ int main(int argc, char** argv) {
 
     //devuelve el maximo de elementos 
     cout << setw(3)<<funlis(numero, n);
+    //cout << setw(3)<<funlisOptimizado(numero, n);
 
     return 0;
 }
@@ -49,4 +51,27 @@ int funlis(vector<int>&num, int n) {
     cout << endl;
     
     return max; //no necesariamente es el último Fn
+}
+
+
+int funlisOptimizado(vector<int>& num, int n) {
+    vector<int> Fn(n, 1); // Inicializar Fn[] con 1 directamente
+    int max_lis = 1;      // Guarda el valor máximo de LIS
+
+    for (int i = 1; i < n; i++) {
+        for (int j = 0; j < i; j++) {
+            if (num[i] > num[j]) {
+                Fn[i] = max(Fn[i], Fn[j] + 1); // Actualiza Fn[i] directamente
+            }
+        }
+        max_lis = max(max_lis, Fn[i]); // Actualiza el valor máximo
+    }
+
+    // Muestra las soluciones parciales
+    for (int i = 0; i < n; i++) {
+        cout << setw(3) << Fn[i];
+    }
+    cout << endl;
+
+    return max_lis; // Retorna la longitud de la secuencia creciente más larga
 }
