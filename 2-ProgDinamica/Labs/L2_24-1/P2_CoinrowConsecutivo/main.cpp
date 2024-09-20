@@ -1,25 +1,20 @@
-
 /* 
  * File:   main.cpp
  * Author: mellcr 
  *
- * Created on 2 de setiembre de 2024, 2:20 p. m.
+ * Created on 19 de setiembre de 2024, 4:15 p. m.
  */
+
 #include <iostream>
 #include <iomanip>
 #include <fstream>
-#include <vector>
-#include <string>
 using namespace std;
 
 /*
- * MOCHILA - PROGRAMACIÓN DINAMICA     
+ * 
  */
-
 int main(int argc, char** argv) {
-    cout<<"ola"<<endl; 
-    
-    
+
     return 0;
 }
 
