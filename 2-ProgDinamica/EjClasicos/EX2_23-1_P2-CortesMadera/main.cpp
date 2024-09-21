@@ -22,14 +22,7 @@ int encontrarNoConflictiva(const int fin[], const int inicio[], int i) {
 // Función que encuentra la ganancia máxima usando una matriz para almacenar todo el DP
 int maxBeneficio(int inicio[], int fin[], int beneficio[], int M, int N) {
     // Crear una matriz DP para almacenar la solución
-    int dp[M][M]; // dp[i][j] almacena la ganancia máxima para la subproblema que incluye hasta la presentación i
-
-    // Inicializar la matriz DP con ceros
-    for (int i = 0; i < M; i++) {
-        for (int j = 0; j < M; j++) {
-            dp[i][j] = 0;
-        }
-    }
+    int dp[M][M]{}; 
 
     // Inicializamos la primera fila con los beneficios de la primera presentación
     dp[0][0] = beneficio[0];

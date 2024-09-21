@@ -47,7 +47,7 @@ int billeteraCapacidad(vector<int>&billetes,int capacidad,int n){
              
             dp[i][j] = dp[i-1][j]; // cap < peso (no entra)
             
-            if(dp[i][j]==0 and capacidad>=billetes[i-1]){  // cap >= peso
+            if(dp[i][j]==0 and j>=billetes[i-1]){  // cap >= peso
                 dp[i][j] = dp[i-1][j-billetes[i-1]]; 
             }
             

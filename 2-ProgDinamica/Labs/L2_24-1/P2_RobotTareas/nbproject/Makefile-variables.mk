@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=MinGW-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/MinGW-Windows
-CND_ARTIFACT_NAME_Debug=p2_coinrowconsecutivo
-CND_ARTIFACT_PATH_Debug=dist/Debug/MinGW-Windows/p2_coinrowconsecutivo
+CND_ARTIFACT_NAME_Debug=p2_robottareas
+CND_ARTIFACT_PATH_Debug=dist/Debug/MinGW-Windows/p2_robottareas
 CND_PACKAGE_DIR_Debug=dist/Debug/MinGW-Windows/package
-CND_PACKAGE_NAME_Debug=p2coinrowconsecutivo.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/MinGW-Windows/package/p2coinrowconsecutivo.tar
+CND_PACKAGE_NAME_Debug=p2robottareas.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/MinGW-Windows/package/p2robottareas.tar
 # Release configuration
 CND_PLATFORM_Release=MinGW-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/MinGW-Windows
-CND_ARTIFACT_NAME_Release=p2_coinrowconsecutivo
-CND_ARTIFACT_PATH_Release=dist/Release/MinGW-Windows/p2_coinrowconsecutivo
+CND_ARTIFACT_NAME_Release=p2_robottareas
+CND_ARTIFACT_PATH_Release=dist/Release/MinGW-Windows/p2_robottareas
 CND_PACKAGE_DIR_Release=dist/Release/MinGW-Windows/package
-CND_PACKAGE_NAME_Release=p2coinrowconsecutivo.tar
-CND_PACKAGE_PATH_Release=dist/Release/MinGW-Windows/package/p2coinrowconsecutivo.tar
+CND_PACKAGE_NAME_Release=p2robottareas.tar
+CND_PACKAGE_PATH_Release=dist/Release/MinGW-Windows/package/p2robottareas.tar
 #
 # include compiler specific variables
 #

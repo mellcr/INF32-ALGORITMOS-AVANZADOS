@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=P2_CoinrowConsecutivo
+PROJECTNAME=P2_RobotTareas
 
 # Active Configuration
 DEFAULTCONF=Debug
