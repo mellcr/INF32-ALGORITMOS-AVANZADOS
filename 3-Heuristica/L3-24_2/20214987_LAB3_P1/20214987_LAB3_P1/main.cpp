@@ -34,12 +34,10 @@ bool proyectoAgregado(struct Solu &aux,int numProy);
  */
 int main(int argc, char** argv) {
     int N=8;  //nProyectos
-    int P = 250; 
-    
+    int P = 250;     
     vector<Datos> proyectos = {{1,80,150,2},{2,20,80,5,{4}},
     {3,100,300,1,{1,2}},{4,100,150,4},{5,50,80,2},{6,10,50,1,{2}},{7,50,120,2,{6}},
     {8,50,150,4,{6}}};
-    
     
 //    for(int i=0; i<N; i++){
 //        cout << "Proyecto "<<i+1<<": "<<proyectos[i].costo<<endl;
@@ -48,10 +46,11 @@ int main(int argc, char** argv) {
 //        }
 //        cout <<endl; 
 //    }
-    
-    //cout <<P<<endl; 
+
     seleccionaProyectos(N,P,proyectos);
 
+    
+    
     
     return 0;
 }
