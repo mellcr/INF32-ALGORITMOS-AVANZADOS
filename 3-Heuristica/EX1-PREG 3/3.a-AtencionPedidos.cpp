@@ -16,6 +16,7 @@ struct Barra{
     int tamanho;        //tam original
     int desperdicio;    //tam desp de sus cortes 
 };
+
 void hallaSolu(vector<Datos> &pedidos,int nPed,vector<Barra>&almacen,int nBarras, int &maxGanancia);
 bool compara(struct Datos &a, struct Datos &b);
 

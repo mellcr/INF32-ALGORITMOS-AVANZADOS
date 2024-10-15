@@ -20,15 +20,15 @@ struct Datos{
     double maximizador; //considerando Double para que la ordenación sea más exacta
 };
 
-struct Nodo{
+struct Solu{
     int gananciaTotal; 
     int costoTotal; 
     vector<int> proyectosSeleccionados; 
 };
 
-void seleccionaProyectos(int nProy,int Pres,vector<Datos> &proyectos);
+void seleccionaProyectos(int N,int Pres,vector<Datos> &proyectos);
 bool compara(struct Datos &a, struct Datos &b);
-bool proyectoAgregado(struct Nodo &aux,int numProy);
+bool proyectoAgregado(struct Solu &aux,int numProy);
 /*
  * 
  */
@@ -57,53 +57,53 @@ int main(int argc, char** argv) {
 }
 
 /*Maximizar la ganancia, beneficio y minimizar el costo */
-void seleccionaProyectos(int nProy,int Pres,vector<Datos> &proyectos){
+void seleccionaProyectos(int N,int Pres,vector<Datos> &proyectos){
     /*Hallo el maximizador por cada proyecto*/
-    for(int i=0; i<nProy; i++){
+    for(int i=0; i<N; i++){
         proyectos[i].maximizador = ((proyectos[i].ganancia *proyectos[i].beneficio) / (double)proyectos[i].costo );
         //cout << proyectos[i].maximizador<<" ";
     }
+  
+    /*Creo una copia del vector y luego la ordeno*/
+    vector<Datos> proyectosPrioridad(proyectos);
+    sort(proyectosPrioridad.begin(),proyectosPrioridad.end(),compara);
     
-    /*Creo un vector copia de proyectos para no perder la relacion de indices 
-     para los predecesores*/
-   vector<Datos> proytemp(proyectos);
-    
-    /*Ordeno*/
-    sort(proytemp.begin(),proytemp.end(),compara);
-//    for(int i=0; i<8; i++){
-//        cout << "Proyecto "<<proytemp[i].nProy<<": ";
-//        for(int j=0; j<proytemp[i].predecesores.size();j++){
-//            cout << proytemp[i].predecesores[j]<<" "; 
-//        }
-//        cout <<endl; 
-//    }
-    
-    struct Nodo aux={0,0}; 
-    for(int i=0; i<nProy; i++){
-        int nProy = proytemp[i].nProy-1; 
-        if(aux.costoTotal+ proyectos[nProy].costo<=Pres and !proyectoAgregado(aux,nProy)){
-            aux.costoTotal+= proyectos[nProy].costo;
-            aux.gananciaTotal+= proyectos[nProy].ganancia;
-            aux.proyectosSeleccionados.push_back(nProy);  
+    /*Atiendo los proyectos*/
+    struct Solu solu={0,0};
+    for(int i=0;i<N;i++){
+        /*dado que no se puede tener proyectos sin predecesores, copiamos solu a un temp*/
+        struct Solu temp = solu; 
+        
+        int nProy = proyectosPrioridad[i].nProy - 1; 
+        if(proyectos[nProy].costo <=Pres and !proyectoAgregado(temp,nProy)){
+            temp.costoTotal+= proyectos[nProy].costo;
+            temp.gananciaTotal+= proyectos[nProy].ganancia;
+            temp.proyectosSeleccionados.push_back(nProy);  
             
-            /*Guardo los proyectos predecesores*/
-            for(int j=0; j<proyectos[nProy].predecesores.size(); j++){
-                int nProyPredec = proyectos[nProy].predecesores[j]-1; //se le resta 1 por indice
-                if(aux.costoTotal+proyectos[nProyPredec].costo<=Pres 
-                        and  !proyectoAgregado(aux,nProyPredec)){
-                    aux.costoTotal+=proyectos[nProyPredec].costo; 
-                    aux.gananciaTotal+=proyectos[nProyPredec].ganancia; 
-                    aux.proyectosSeleccionados.push_back(nProyPredec);
+            /*Añado sus predecesores*/
+            bool entranPred=true;
+            for(int j=0; j<proyectos[i].predecesores.size();j++){
+                int proyPred = proyectos[i].predecesores[j] - 1; 
+                if(proyectos[proyPred].costo <=Pres and !proyectoAgregado(temp,proyPred)){
+                    temp.costoTotal+= proyectos[proyPred].costo;
+                    temp.gananciaTotal+= proyectos[proyPred].ganancia;
+                    temp.proyectosSeleccionados.push_back(proyPred); 
+                }else{
+                    entranPred=false;
                 }
+            }
+            //falta logica en caso falle 
+            if(entranPred){
+                solu = temp;
             }
         }
     }
     
     cout << endl<<"Proyectos seleccionados: "; 
-    for(int j=0; j<aux.proyectosSeleccionados.size();j++){
-        cout <<aux.proyectosSeleccionados[j]+1<<" "; 
+    for(int j=0; j<solu.proyectosSeleccionados.size();j++){
+        cout <<solu.proyectosSeleccionados[j]+1<<" "; 
     }
-    cout <<endl<<"Ganancia: "<<aux.gananciaTotal<<endl;
+    cout <<endl<<"Ganancia: "<<solu.gananciaTotal<<endl;
     //cout <<"Costo: "<<aux.costoTotal<<endl;
 }
 
@@ -111,7 +111,7 @@ bool compara(struct Datos &a, struct Datos &b){
     return a.maximizador>b.maximizador; 
 }
 
-bool proyectoAgregado(struct Nodo &aux,int numProy){
+bool proyectoAgregado(struct Solu &aux,int numProy){
     if(aux.proyectosSeleccionados.empty()){
         return false;
     }

@@ -50,11 +50,11 @@ int maxbeneficio(int ini[],int fin[],int ben[], int n)
 
 	//PROGRAMACION DINAMICA 
 	for (int i = 1; i < n; i++) {
-		int inclProf = ben[i];       // el beneficio actual u.u
+		int beneficioActual = ben[i];       // el beneficio actual u.u
 		int l = conflictos(ini,fin, i);			//
-		//						beneficioActual + beneficio en ese indice
-		if (l != -1) inclProf = inclProf + dp[l]; 
-		dp[i] = max(inclProf, dp[i - 1]);
+		//Si no hay conflicto -> añado beneficio al dp		beneficioActual + beneficio en ese indice
+		if (l != -1) beneficioActual = beneficioActual + dp[l]; 
+		dp[i] = max(beneficioActual, dp[i - 1]);
 		
 		for(int j=0;j<i;j++)
             cout << dp[j] <<" ";

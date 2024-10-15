@@ -1,5 +1,3 @@
-
-
 /* 
  * File:   main.cpp
  * Author: alulab14
@@ -8,7 +6,6 @@
  */
 
 #include <iostream>
-//#include <iomanip>
 #include <vector>
 #include <iomanip>
 #include "MochilaGanancia.h"
@@ -26,10 +23,6 @@ int main(int argc, char** argv) {
     //mochilaNormal(pesos, capacidad, n);
     //mochilaGanancia(pesos,ganancia,capacidad,n);
     mochilaMinima(pesos,ganancia,capacidad,n);
-
-    
-    
-    
     return 0;
 }
 
