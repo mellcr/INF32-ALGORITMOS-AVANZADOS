@@ -29,16 +29,16 @@ int verifica(const vector<int>& paq, double rcl) {
     return cont;
 }
 
-void cargamochila(int* paq, int peso, int n, const vector<vector<int>>& predecesores) {
+void cargamochila(vector<int>& paq, int peso, const vector<vector<int>>& predecesores) {
     int mejor = INT_MAX;
     vector<int> maxsol;
     for (int k = 0; k < maxitera; k++) {
         // fase construcción
         srand(time(NULL));
         vector<int> soluciones;
-        sort(paq, paq + n, compara);
-        vector<int> paquetes(paq, paq + n);
-        vector<int> seleccionados; // Vector de enteros para guardar los objetos seleccionados
+        sort(paq.begin(), paq.end(), compara);
+        vector<int> paquetes = paq;          // Copia del vector paq para manipulación
+        vector<int> seleccionados;           // Vector de enteros para guardar los objetos seleccionados
 
         int residual = peso;
         while (!paquetes.empty()) {
@@ -53,17 +53,17 @@ void cargamochila(int* paq, int peso, int n, const vector<vector<int>>& predeces
 
             // Verifica si los predecesores del objeto seleccionado han sido cumplidos
             if (predecesoresCumplidos(predecesores[inda], seleccionados)) {
-				/Se encontro una solucion/
+                // Se encontró una solución
                 if (residual - objetoSeleccionado >= 0) {
                     soluciones.push_back(objetoSeleccionado);
                     residual -= objetoSeleccionado;
                     seleccionados.push_back(objetoSeleccionado); // Guarda el objeto seleccionado
                 }
-				/Descarta el elemento seleccionado/
+                // Descarta el elemento seleccionado
                 paquetes.erase(paquetes.begin() + inda);
             }
         }
-		/* Selecciona la mejor solucion */
+        /* Selecciona la mejor solucion */
         if (residual < mejor) {
             mejor = residual;
             maxsol = soluciones;
@@ -78,8 +78,8 @@ void cargamochila(int* paq, int peso, int n, const vector<vector<int>>& predeces
 }
 
 int main(int argc, char** argv) {
-    int paq[] = {10, 2, 1, 5, 9, 8};
-    int n = sizeof(paq) / sizeof(paq[0]);
+    vector<int> paq = {10, 2, 1, 5, 9, 8}; // Cambiamos paq a un vector
+    int n = paq.size(); // Eliminamos el cálculo de tamaño de arreglos
     int peso = 14;
 
     // Definir predecesores para cada objeto
@@ -92,7 +92,7 @@ int main(int argc, char** argv) {
         {9}       // Objeto 5 depende de 9
     };
 
-    cargamochila(paq, peso, n, predecesores);
+    cargamochila(paq, peso, predecesores);
 
     return 0;
 }
