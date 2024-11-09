@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=L4_2024-1_Metaheuristica
+PROJECTNAME=L4_2024-1_Metaheuristic
 
 # Active Configuration
 DEFAULTCONF=Debug

@@ -9,19 +9,19 @@ CND_DISTDIR=dist
 # Debug configuration
 CND_PLATFORM_Debug=MinGW-Windows
 CND_ARTIFACT_DIR_Debug=dist/Debug/MinGW-Windows
-CND_ARTIFACT_NAME_Debug=l4_2024-1_metaheuristica
-CND_ARTIFACT_PATH_Debug=dist/Debug/MinGW-Windows/l4_2024-1_metaheuristica
+CND_ARTIFACT_NAME_Debug=l4_2024-1_metaheuristic
+CND_ARTIFACT_PATH_Debug=dist/Debug/MinGW-Windows/l4_2024-1_metaheuristic
 CND_PACKAGE_DIR_Debug=dist/Debug/MinGW-Windows/package
-CND_PACKAGE_NAME_Debug=l42024-1metaheuristica.tar
-CND_PACKAGE_PATH_Debug=dist/Debug/MinGW-Windows/package/l42024-1metaheuristica.tar
+CND_PACKAGE_NAME_Debug=l42024-1metaheuristic.tar
+CND_PACKAGE_PATH_Debug=dist/Debug/MinGW-Windows/package/l42024-1metaheuristic.tar
 # Release configuration
 CND_PLATFORM_Release=MinGW-Windows
 CND_ARTIFACT_DIR_Release=dist/Release/MinGW-Windows
-CND_ARTIFACT_NAME_Release=l4_2024-1_metaheuristica
-CND_ARTIFACT_PATH_Release=dist/Release/MinGW-Windows/l4_2024-1_metaheuristica
+CND_ARTIFACT_NAME_Release=l4_2024-1_metaheuristic
+CND_ARTIFACT_PATH_Release=dist/Release/MinGW-Windows/l4_2024-1_metaheuristic
 CND_PACKAGE_DIR_Release=dist/Release/MinGW-Windows/package
-CND_PACKAGE_NAME_Release=l42024-1metaheuristica.tar
-CND_PACKAGE_PATH_Release=dist/Release/MinGW-Windows/package/l42024-1metaheuristica.tar
+CND_PACKAGE_NAME_Release=l42024-1metaheuristic.tar
+CND_PACKAGE_PATH_Release=dist/Release/MinGW-Windows/package/l42024-1metaheuristic.tar
 #
 # include compiler specific variables
 #

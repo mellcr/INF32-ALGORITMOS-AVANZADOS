@@ -6,6 +6,7 @@
  */
 
 #include <iostream>
+#include <iomanip>
 #include <vector>
 #include <algorithm>
 #include <ctime>
@@ -39,10 +40,14 @@ int verifica(vector<nodo>vaux,int minrcl){
 
 int minruta(int ini,int fin,int mapa[][MAX]){
     int min=INT_MAX;
+    vector<int> mejorRuta; 
     for(int k=0;k<iteraciones;k++){
         int total=0;		//total distancia 
         srand(time(NULL));
         int ciudad=ini;		//ciudad donde iniciamos 
+        
+        vector<int> ciudadesRuta; 
+        ciudadesRuta.push_back(ciudad); 
         while(1){
 			//Guarda los vecinos en esa ciudad
             vector<nodo>vecinos;     //N 
@@ -67,6 +72,7 @@ int minruta(int ini,int fin,int mapa[][MAX]){
 				//Asignamos sgte ciudad y acumulamos valor de distancia 
                 ciudad=vecinos[inda].punto;
                 total+=vecinos[inda].distancia;
+                ciudadesRuta.push_back(ciudad); 
             }
 			/*2 posibles casos para parar el while:
 			- LLego a la ciudad de fin
@@ -79,9 +85,17 @@ int minruta(int ini,int fin,int mapa[][MAX]){
             }
         }
 		//Guarda la mejor solucion de todas las iteraciones (1000000)
-        if(total<min)
+        if(total<min){
             min=total;
+            mejorRuta.assign(ciudadesRuta.begin(), ciudadesRuta.end());
+        }
+        ciudadesRuta.clear(); 
     }
+    
+    for(int i=0;i<mejorRuta.size();i++ ){
+        cout << setw(3)<<mejorRuta[i]+1;
+    }
+    cout <<endl;
     
     return min;
 }
