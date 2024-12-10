@@ -34,7 +34,7 @@ void cargamochila(vector<int>& paq, int peso) {
         vector<int> paquetes = paq;              // Copia de paq para trabajar en esta iteración
         int residual = peso;                     // Peso disponible restante en la mochila
 
-        while (!paquetes.empty()) {
+        while (!paquetes.empty()) {					//Mientras hayan paquetes, los asignaremos
             int beta = paquetes[0];                // Mayor valor posible
             int tau = paquetes[paquetes.size() - 1]; // Menor valor posible
             double rcl = beta - alfa * (beta - tau); // Calcula el umbral para RCL
